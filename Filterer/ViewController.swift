@@ -39,6 +39,8 @@ class ViewController: UIViewController {
         }
         
         let result = rgbaImage.toUIImage()
+        
+        print("This code has executed")
     }
 
     override func didReceiveMemoryWarning() {
