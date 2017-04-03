@@ -10,15 +10,33 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var filteredImage: UIImage?
+    var image: UIImage?
+    
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var imageToggle: UIButton!
+    
+    
+    @IBAction func onImageToggle(_ sender: UIButton) {
+        if (imageToggle.isSelected) {
+            imageView.image = image
+            imageToggle.isSelected = false
+        } else {
+            imageView.image = filteredImage
+            imageToggle.isSelected = true
+        }
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let image = UIImage(named: "scenery")!
+        imageToggle.setTitle("Show Before Image", for: .selected)
         
-        var rgbaImage = RGBAImage(image: image)!
+        image = #imageLiteral(resourceName: "scenery")
+        
+        var rgbaImage = RGBAImage(image: image!)!
 
         let avgRed = 107
         
@@ -40,11 +58,9 @@ class ViewController: UIViewController {
             }
         }
         
-        let result = rgbaImage.toUIImage()
+        filteredImage = rgbaImage.toUIImage()
         
-        print("This code has executed")
         
-        imageView.image = result
     }
 
     override func didReceiveMemoryWarning() {
