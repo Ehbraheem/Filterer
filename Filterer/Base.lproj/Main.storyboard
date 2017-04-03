@@ -30,6 +30,7 @@
                                 <rect key="frame" x="16" y="481" width="286" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Show Filtered Image"/>
+                                <state key="selected" title="Show Before Image"/>
                                 <connections>
                                     <action selector="onImageToggle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6qD-Ly-adC"/>
                                 </connections>

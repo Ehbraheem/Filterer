@@ -32,8 +32,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        imageToggle.setTitle("Show Before Image", for: .selected)
-        
         image = #imageLiteral(resourceName: "scenery")
         
         var rgbaImage = RGBAImage(image: image!)!
