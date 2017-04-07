@@ -60,9 +60,6 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xRm-KY-Gum">
                                                 <rect key="frame" x="225" y="0.0" width="75" height="44"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="44" id="O6S-nH-oLP"/>
-                                                </constraints>
                                                 <state key="normal" title="Share"/>
                                             </button>
                                         </subviews>
