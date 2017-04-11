@@ -52,10 +52,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.present(actionSheet, animated: true, completion: nil)
     }
     
+    
+    @IBAction func onShare(_ sender: UIButton) {
+        let activityContoller = UIActivityViewController(activityItems: [imageView.image!], applicationActivities: nil)
+        
+        present(activityContoller, animated: true, completion: nil)
+    }
+    
+    
     func showCamera() {
         let imagePicker = self.imageSeletion(selector: .camera)
         self.present(imagePicker, animated: true, completion: nil)
     }
+    
+    
     
     func showAlbum ()  {
         let imagePicker = self.imageSeletion(selector: .photoLibrary)

@@ -64,6 +64,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xRm-KY-Gum">
                                                 <rect key="frame" x="310.66666666666674" y="0.0" width="103.33333333333331" height="44"/>
                                                 <state key="normal" title="Share"/>
+                                                <connections>
+                                                    <action selector="onShare:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iZ4-Ve-Qiz"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
