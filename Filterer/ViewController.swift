@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     var filteredImage: UIImage?
     
@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var bottomMenu: UIView!
     
     @IBOutlet weak var filterButton: UIButton!
+    
+//    @IBOutlet weak var onNewPhoto: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,55 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func onNewPhoto(_ sender: UIButton) {
+        let actionSheet = UIAlertController(title: "New Photo", message: nil, preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) in
+            self.showCamera()
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Album", style: .default, handler: { (action) in
+            self.showAlbum()
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil
+        ))
+        
+        self.present(actionSheet, animated: true, completion: nil)
+    }
+    
+    func showCamera() {
+        let imagePicker = self.imageSeletion(selector: .camera)
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func showAlbum ()  {
+        let imagePicker = self.imageSeletion(selector: .photoLibrary)
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    
+    func imageSeletion(selector: UIImagePickerControllerSourceType) -> UIViewController {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.sourceType  = selector
+        
+        return picker
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        dismiss(animated: true, completion: nil)
+        
+        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        
+        imageView.image = image
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func onFilter(_ sender: UIButton) {
         if (sender.isSelected) {
             hideSecondaryView()
